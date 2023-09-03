@@ -1,0 +1,36 @@
+name: Dead link checker
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ "main" ]
+  schedule:
+    # Triggers the workflow weekdays at 9:00 UTC
+    - cron: '0 9 * * MON-FRI'
+
+jobs:
+  markdown-link-check:
+    name: Check Markdown links
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+      - name: Setup Go
+        uses: actions/setup-go@v3
+        with:
+          go-version-file: magefiles/go.mod
+      - name: Check links in *.md files
+        uses: magefile/mage-action@v2
+        with:
+          version: latest
+          args: checkLinks

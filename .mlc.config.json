@@ -1,0 +1,14 @@
+{
+  "ignorePatterns": [
+    {
+      "pattern": "^(?!http[s]?:\\/\\/|www\\.).+"
+    },
+    {
+      "pattern": "^https://example.com"
+    },
+    {
+      "pattern": "^https://botkube.herokuapp.com/help"
+    }
+  ],
+  "replacementPatterns": []
+}
