@@ -4,7 +4,7 @@ title: General
 sidebar_position: 6
 ---
 
-The general settings holds a general configuration for the Botkube backend. For example, log level, disabling config watcher and similar.
+The general settings will hold a general configuration for the Botkube backend. For example, log level, disabling config watcher and similar.
 
 ## Syntax
 

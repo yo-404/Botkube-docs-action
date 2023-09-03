@@ -67,7 +67,7 @@ executors:
       config: # Plugin's specific configuration.
         helmDriver: "secret"
 
-    botkube/kubectl: # If version is not provided, the latest version from repository is used.
+    botkube/kubectl: # the latest version from repository is used,if version is not provided, 
       enabled: true # If not enabled, plugin is not downloaded and started.
 
 # Configuration for Botkube executors and sources plugins.

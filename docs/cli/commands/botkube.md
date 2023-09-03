@@ -35,7 +35,7 @@ botkube [flags]
 
 ### SEE ALSO
 
-- [botkube install](botkube_install.md) - install Botkube into cluster
+- [botkube installation](botkube_install.md) - install Botkube into cluster
 - [botkube login](botkube_login.md) - Login to a Botkube Cloud
 - [botkube migrate](botkube_migrate.md) - Automatically migrates Botkube installation into Botkube Cloud
 - [botkube uninstall](botkube_uninstall.md) - uninstall Botkube from cluster
