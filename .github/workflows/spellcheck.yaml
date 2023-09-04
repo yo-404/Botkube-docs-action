@@ -30,7 +30,6 @@ jobs:
             - name: Check out code.
               uses: actions/checkout@v1  
             - name: running misspell
-              if: success() || failure()  
               uses: reviewdog/action-misspell@v1
               with:
                 github_token: ${{ secrets.github_token }}
