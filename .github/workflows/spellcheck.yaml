@@ -1,7 +1,7 @@
 name: Spellcheck
 on: 
   push:
-    branches: [main]
+    # branches: [main]
 jobs: 
     language-tool:
         name: Language tool
