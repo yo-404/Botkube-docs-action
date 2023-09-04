@@ -30,7 +30,7 @@ jobs:
                 locale: "US"
                 reporter: github-check
                 level: info
-                # pattern: "**.md"
+                pattern: "**.md"
                 exclude: |
                     ./.git/*
                     ./.cache/*
