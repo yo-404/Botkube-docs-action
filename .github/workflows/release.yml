@@ -1,8 +1,5 @@
 name: Release
 
-env:
-  REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 on:
   workflow_dispatch:
     inputs:
@@ -37,7 +34,7 @@ jobs:
         run: |
           npm run prettier:fix
 
-      - name: misspell
+      - name: running misspell
         uses: reviewdog/action-misspell@v1
         with:
           github_token: ${{ secrets.github_token }}
@@ -46,6 +43,18 @@ jobs:
           exclude: |
             ./.git/*
             ./.cache/*
+
+      - name: Running Language tool
+        uses: reviewdog/action-languagetool@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          # Change reviewdog reporter if you need [github-pr-check,github-check,github-pr-review].
+          reporter: github-check
+          # Change reporter level if you need.
+          level: info
+          language: en-US
+          disabled_categories: 'TYPOS,TYPOGRAPHY,CASING'
+      
 
 
 
