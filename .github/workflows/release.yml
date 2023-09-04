@@ -35,7 +35,6 @@ jobs:
           npm run prettier:fix
 
       - name: running misspell
-        if: success() || failure()
         uses: reviewdog/action-misspell@v1
         with:
           github_token: ${{ secrets.github_token }}
@@ -46,6 +45,7 @@ jobs:
             ./.cache/*
 
       - name: Running Language tool
+        if: success() || failure()
         uses: reviewdog/action-languagetool@v1
         with:
           github_token: ${{ secrets.github_token }}
