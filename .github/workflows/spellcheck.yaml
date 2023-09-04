@@ -2,7 +2,7 @@ name: Spellcheck
 on: [push]
 jobs: 
     language-tool:
-        name: running Language tool
+        name: Language tool
         runs-on: ubuntu-latest
         steps:
             - name: check out code
@@ -24,7 +24,7 @@ jobs:
                 patterns: "**.md"
     
     Misspell-check:
-        name: running misspell check 
+        name: Misspell check 
         runs-on: ubuntu-latest    
         steps:
             - name: Check out code.
