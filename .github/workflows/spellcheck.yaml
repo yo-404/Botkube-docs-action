@@ -2,23 +2,10 @@ name: Spellcheck
 on: [pull_request]
 jobs: 
     spell-checker:
-        name: Misspell Checker & Language tool 
+        name: Language tool & Misspell Checker
         runs-on: ubuntu-latest
         steps:
-            - name: Check out code.
-              uses: actions/checkout@v1  
-            - name: running misspell
-              uses: reviewdog/action-misspell@v1
-              with:
-                github_token: ${{ secrets.github_token }}
-                locale: "US"
-                reporter: github-pr-check
-                level: info
-                pattern: "**.md"
-                exclude: |
-                    ./.git/*
-                    ./.cache/*
-                  
+            
             - name: check out code
               uses: actions/checkout@v2
             - name: running language tool 
@@ -37,5 +24,18 @@ jobs:
                 enabled_categories: ''
                 patterns: "**.md"
     
+            - name: Check out code.
+              uses: actions/checkout@v1  
+            - name: running misspell
+              uses: reviewdog/action-misspell@v1
+              with:
+                github_token: ${{ secrets.github_token }}
+                locale: "US"
+                reporter: github-pr-check
+                level: info
+                pattern: "**.md"
+                exclude: |
+                    ./.git/*
+                    ./.cache/*
 
 
