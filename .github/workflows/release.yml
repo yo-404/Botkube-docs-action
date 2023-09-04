@@ -34,7 +34,21 @@ jobs:
         run: |
           npm run prettier:fix
 
+      - name: Running Language tool
+        uses: reviewdog/action-languagetool@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+           # Change reviewdog reporter if you need [github-pr-check,github-check,github-pr-review].
+          reporter: github-check
+          # Change reporter level if you need.
+          level: info
+          language: en-US
+          disabled_categories: 'TYPOS,TYPOGRAPHY,CASING'
+            
+
       - name: running misspell
+      # to run even after lang tool failure
+        if: success() || failure()
         uses: reviewdog/action-misspell@v1
         with:
           github_token: ${{ secrets.github_token }}
@@ -44,18 +58,7 @@ jobs:
             ./.git/*
             ./.cache/*
 
-      - name: Running Language tool
-        if: success() || failure()
-        uses: reviewdog/action-languagetool@v1
-        with:
-          github_token: ${{ secrets.github_token }}
-          # Change reviewdog reporter if you need [github-pr-check,github-check,github-pr-review].
-          reporter: github-check
-          # Change reporter level if you need.
-          level: info
-          language: en-US
-          disabled_categories: 'TYPOS,TYPOGRAPHY,CASING'
-      
+
 
 
 
