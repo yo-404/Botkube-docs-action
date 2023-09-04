@@ -1,11 +1,10 @@
 name: Spellcheck
-on: [pull_request]
+on: [pull-request]
 jobs: 
-    spell-checker:
-        name: Language tool & Misspell Checker
+    language-tool:
+        name: Language tool
         runs-on: ubuntu-latest
         steps:
-            
             - name: check out code
               uses: actions/checkout@v2
             - name: running language tool 
@@ -24,6 +23,10 @@ jobs:
                 enabled_categories: ''
                 patterns: "**.md"
     
+    Misspell-check:
+        name: Misspell check 
+        runs-on: ubuntu-latest    
+        steps:
             - name: Check out code.
               uses: actions/checkout@v1  
             - name: running misspell
