@@ -3,8 +3,8 @@ on:
   push:
     # branches: [main]
 jobs: 
-  language-tool:
-    name: Language tool
+  spell-check:
+    name: Language tool and Misspell 
     runs-on: ubuntu-latest
     steps:
       - name: check out code
@@ -26,6 +26,7 @@ jobs:
           patterns: "**.md"
     
       - name: running misspell
+        if: success() || failure()  
         uses: reviewdog/action-misspell@v1
         with:
           github_token: ${{ secrets.github_token }}
