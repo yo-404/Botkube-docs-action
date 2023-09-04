@@ -21,6 +21,7 @@ jobs:
                 enabled_only: 'false'
                 enabled_rules: ''
                 enabled_categories: ''
+                patterns: "**.md"
             
             - name: running misspell
               if: success() || failure()  
