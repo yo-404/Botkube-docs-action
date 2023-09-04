@@ -13,3 +13,6 @@ jobs:
           github_token: ${{ secrets.github_token }}
           locale: "US"
           reporter: github-check
+          exclude: |
+            ./.git/*
+            ./.cache/*
