@@ -1,4 +1,4 @@
-name: reviewdog
+name: Action-misspell
 on: [push]
 jobs:
   misspell:

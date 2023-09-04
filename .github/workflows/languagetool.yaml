@@ -1,4 +1,4 @@
-name: reviewdog
+name: languagetool
 on: [push]
 jobs:
   linter_name:
