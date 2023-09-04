@@ -26,7 +26,9 @@ jobs:
     Misspell-check:
         name: running misspell check 
         runs-on: ubuntu-latest    
-        steps:  
+        steps:
+            - name: Check out code.
+              uses: actions/checkout@v1  
             - name: running misspell
               if: success() || failure()  
               uses: reviewdog/action-misspell@v1
