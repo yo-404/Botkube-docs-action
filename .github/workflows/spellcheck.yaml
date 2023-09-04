@@ -1,0 +1,31 @@
+name: Spellcheck
+on: [push]
+jobs: 
+    language-tool:
+        name: running SpellCheck
+        runs-on: ubuntu-latest
+        steps:
+            - name: check out code
+              uses: actions/checkout@v2
+            - name: running language tool 
+              uses: reviewdog/action-languagetool@v1
+              with:
+                github_token: ${{ secrets.github_token }}
+                 # Change reviewdog reporter if you need [github-pr-check,github-check,github-pr-review].
+                reporter: github-check
+                # Change reporter level if you need.
+                level: info
+                language: en-US
+                disabled_categories: 'TYPOS,TYPOGRAPHY,CASING' 
+            
+            - name: running misspell
+              uses: reviewdog/action-misspell@v1
+              with:
+                github_token: ${{ secrets.github_token }}
+                locale: "US"
+                reporter: github-check
+                exclude: |
+                    ./.git/*
+                    ./.cache/*
+
+
