@@ -2,7 +2,7 @@ name: Spellcheck
 on: [push]
 jobs: 
     language-tool:
-        name: running SpellCheck
+        name: running Language tool
         runs-on: ubuntu-latest
         steps:
             - name: check out code
@@ -22,7 +22,11 @@ jobs:
                 enabled_rules: ''
                 enabled_categories: ''
                 patterns: "**.md"
-            
+    
+    Misspell-check:
+        name: running misspell check 
+        runs-on: ubuntu-latest    
+        steps:  
             - name: running misspell
               if: success() || failure()  
               uses: reviewdog/action-misspell@v1
