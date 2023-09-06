@@ -24,10 +24,10 @@ jobs:
           enabled_rules: ''
           enabled_categories: ''
           patterns: |
-            **.md
-            !helm-chart-parameters.md
-          
-          
+            "!helm-chart-parameters.md"
+            "**.md "
+            
+    
     
       - name: running misspell
         # To perform misspell check even after the language tool test fails 
