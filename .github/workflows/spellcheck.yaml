@@ -4,7 +4,7 @@ on:
     # branches: [main]
 jobs: 
   spell-check:
-    name: Language tool and Misspell check
+    name: Language tool & Misspell check
     runs-on: ubuntu-latest
     steps:
       - name: check out code
@@ -24,6 +24,7 @@ jobs:
           enabled_rules: ''
           enabled_categories: ''
           patterns: "**.md"
+          
     
       - name: running misspell
         # To perform misspell check even after the language tool test fails 
