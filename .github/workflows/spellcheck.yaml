@@ -24,8 +24,8 @@ jobs:
           enabled_rules: ''
           enabled_categories: ''
           patterns: |
-            "!helm-chart-parameters.md"
             "**.md"
+            "!helm-chart-parameters.md"
             
     
     
