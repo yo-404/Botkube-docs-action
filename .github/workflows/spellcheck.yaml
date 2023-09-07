@@ -23,7 +23,9 @@ jobs:
           enabled_only: 'false'
           enabled_rules: ''
           enabled_categories: ''
-          patterns: "**.md"
+          patterns: |
+            "**.md"
+            "!helm-chart-parameters.md"
            
       - name: running misspell
         # To perform misspell check even after the language tool test fails 
